@@ -1,6 +1,6 @@
 = vtext
 
-You can use this class to send text messages to a Verizon phone.
+Use this class to send text messages to a Verizon phone.
 
   require 'vtext'
 
