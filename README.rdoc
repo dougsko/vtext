@@ -2,12 +2,12 @@
 
 You can use this class to send text messages to a Verizon phone.
 
-vtext = Vtext.new({ "cell_num" => "5551234567899", 
-                    "username" => "gmail username",
-                    "password" => "password"}
-                 )
+  vtext = Vtext.new({ "cell_num" => "5551234567899", 
+                      "username" => "gmail username",
+                      "password" => "password"}
+                   )
 
-vtext.send('hello world')
+  vtext.send('hello world')
 
 
 
