@@ -2,6 +2,8 @@
 
 You can use this class to send text messages to a Verizon phone.
 
+  require 'vtext'
+
   vtext = Vtext.new({ "cell_num" => "5551234567899", 
                       "username" => "gmail username",
                       "password" => "password"}
