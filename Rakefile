@@ -9,6 +9,9 @@ begin
     gem.email = "dougtko@gmail.com"
     gem.homepage = "http://github.com/dougsko/vtext"
     gem.authors = ["dougsko"]
+    gem.require_paths = ['/bin', '/lib']
+    gem.add_dependency "smtp-tls"
+    gem.add_dependency "tmail"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
 
