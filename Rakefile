@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "vtext"
-    gem.summary = %Q{TODO}
+    gem.summary = %Q{Utilities to use Verizon's email to text message service at vtext.com.}
     gem.email = "dougtko@gmail.com"
     gem.homepage = "http://github.com/dougsko/vtext"
     gem.authors = ["dougsko"]
