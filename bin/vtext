@@ -1,0 +1,74 @@
+#!/usr/bin/env ruby
+#
+#
+# CLI to use Verizon's vtext email->SMS service
+#
+# Copyright (C) 2009 dougsko
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+require 'rubygems'
+require 'optparse'
+require 'vtext'
+
+options = {}
+
+opts = OptionParser.new do |opts|
+    opts.banner =  "vtext is program to use Verizon's vtext email->SMS
+service
+    Example: vtext -s smtp.gmail.com --port 587 -u username --pass pass -n
+5551234567899 -t \"message to send\" "
+
+    opts.separator ""
+    opts.separator "Options:"
+
+    opts.on("-s <smtp server>", "--server <smtp server>", String, "SMTP
+server") do |server|
+        options["server"] = server
+    end
+
+    opts.on("--port <smtp port>", String, "SMTP port") do |port|
+        options["port"] = port
+    end
+
+    opts.on("-u <username>", "--user <username>", String, "Email username") do |username|
+        options["username"] = username
+    end
+
+    opts.on("--pass <password>", String, "Email password") do |pass|
+        options["password"] = pass
+    end
+
+    opts.on("-n <phone number>", "--number <phone number>", String, "Phone number to send text message") do |num|
+        options["cell_num"] = num
+    end
+
+    opts.on("-t <text>", "--text <text>", String, "Text to send") do |text|
+        options["text"] = text
+    end
+
+    opts.on_tail("-h", "--help", "Show this message") do
+        puts opts
+        exit
+    end
+end
+
+opts.parse(ARGV)
+
+text = options["text"]
+options.delete("text")
+
+vtext = Vtext.new(options)
+vtext.send(text)
